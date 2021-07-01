@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos/estilo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>VAPOR CAFE MUSICA</title>
+  </head>
+  
+<body>
+  <header>
+    <h1 class="titulo">VAPOR</h1>
+  </header>
+    
+  <nav class="tipografia tipografia__links"> 
+      <a href="index.html">HOME </a> 
+      <a href="Origenes.html">ORIGENES </a> 
+      <a href="Recetas.html">RECETAS </a> 
+      <a href="Cafeteras.html">CAFETERAS </a> 
+      <a href="News.html">NEWS </a> 
+      <a href="Contacto.html">CONTACTO</a>
+  </nav>
+
+<h2 class="formulario">Contactanos</h2>
+
+  <form class="formulario" action="enviar.php" method="post">
+  
+    <label for="nombre">NOMBRE Y APELLIDO:</label><br>
+      <input type="text" id="nombre" name="nombre" value="Valentina"><br>
+    
+    <label for="mail">MAIL:</label><br>
+      <input type="text" id="mail" name="mail" value="valentinaT@gmail.com"><br>
+    
+    <h4>¿Que tipo de café te gusta?</h4>      
+        <input type="radio" id="suave" name="tipo" value="suave">
+      <label for="suave">Suave</label><br>
+        <input type="radio" id="intermedio" name="tipo" value="intermedio">
+      <label for="intermedio">Intermedio</label><br>
+        <input type="radio" id="intenso" name="tipo" value="intenso">
+      <label for="intenso">Intenso</label>
+  
+    <h4>¿Cual es tu origen preferido?</h4>
+      <select id="cafe" name="cafe">
+        <option value="etiopia">Etiopia</option>
+        <option value="kenia">Kenia</option>
+        <option value="brasil">Brasil</option>
+        <option value="colombia">Colombia</option>
+      </select><br><br>
+
+    <label for="asunto">ASUNTO:</label><br>
+      <input type="text" id="asunto" name="asunto" value="Cafes"><br>
+
+    <label for="mensaje">MENSAJE:</label><br>
+      <textarea name="mensaje" cols="50" rows="5">Escribe aqui</textarea>
+      <br>
+
+    <label for="newsletter">¿Queres suscribirte al newsletter?</label>
+      <input type="checkbox">
+      <br><br>
+          <input type="reset" value="Borrar">
+          <input type="submit" value="Enviar">
+
+  
+  </form>
+  <footer>
+    <p>
+      Copyright 2021. All Rights Reserved.
+    </p>
+  </footer> 
+</body>
+</html>
