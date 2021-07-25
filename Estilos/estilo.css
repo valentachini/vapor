@@ -7,13 +7,23 @@ body {
 	font-style: normal;	
 }
 
-ul {
+ul{
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
+header{
+	display: block;
+}
 
-.titulo{
+
+/*titulo*/
+.titulo_logo{
+	position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
 	font-size: 60px;
 	text-align: center;
 	color: black;
@@ -21,15 +31,7 @@ ul {
 	font-family: 'Playfair Display', serif;
 }
 
-.top__navegacion{
-	display: block;
-	text-align: center;	
-	margin-bottom:40px;
-}
-.top__secciones, .top__secciones_links{
-	display: inline-block;	
-}
-
+/*barra de navegacion*/
 a:link {
 	text-decoration: none;
 	color: black;	
@@ -37,12 +39,10 @@ a:link {
 a:visited{
 	color:black;
 }
-a:hover{
+.nav-link:hover{
 	color: white;
 }
-.tipografia__tabla{
-	margin: auto;	 
-}
+
 .tipografia__home{
 	letter-spacing: 0.50px;
 	text-align: end;
@@ -57,6 +57,11 @@ a:hover{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
+}
+
+/*
+ .tipografia__tabla{
+	margin: auto;	 
 }
 table, td, th {
   border: 2px solid black;
@@ -77,41 +82,47 @@ th {
 tr:nth-child(even){
 	background-color: #ADAD9A;
 }
+*/
+
 .formulario{
 	font-family: 'Cormorant Garamond', serif;
 	color: black;
 	font-size: 18px;
 	font-style: normal;
 }
+
 .seccion-cafeteras {
 	width: 100%;
 	background: #fafafa;
 	display: flex;
 	justify-content: center;
 }
+
 .contenedor-cafeteras {
 	display: flex;
 	max-width: 80%;
 	justify-content: center;
 }
+
 .contenedor-cafeteras li {
 	padding: 20px;
 }
+
 .seccion-origenes__cafe{
 	 background: #fafafa;
 	 display: flex;
 	 justify-content: center;
 	 width: 100%;
  }
+
  .origenes__cafe__lista{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	max-width: 80%;
 	width: 100%;
+	padding: 20px;
  }
- .origenes__cafe__lista, li{
-	 padding: 20px;
- }
+ 
  .contenedor-recetas{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
