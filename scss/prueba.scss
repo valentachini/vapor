@@ -182,9 +182,29 @@ a{
  }
 
 
- .contenedor-recetas{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	max-width: 80%;
+ 
+
+ .Seccion_listaRecetas{
+    display: flex;
+    background: #fafafa;
 	width: 100%;
+
+     .contenedor_listaRecetas{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        justify-items: center;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 20px;
+        row-gap: 20px;
+	    max-width: 80%;
+	    padding: 20px;
+        
+        
+      }
  }
+
+
+
+  
