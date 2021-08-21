@@ -2,6 +2,8 @@
 @import "base";
 
 
+/*Barra Navegacion*/ 
+
 a{
  color: $mainColor;
  &:hover{
@@ -17,26 +19,20 @@ a{
     }
 }
 
+.seccion {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 .section__barra_top{
     margin-left: 0.5em;
     margin-right: 0.5em;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-align-content: stretch;
-    -ms-flex-line-pack: stretch;
     align-content: stretch;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
     align-items: flex-start;
 }
 
@@ -83,22 +79,87 @@ a{
     align-self: auto;
 }
 
-.tipografia__home{
-	letter-spacing: 0.50px;
-	text-align: end;
-	color: white;
+/*Home*/
+
+.popout{
+	font-weight: 900;
+	font-size: 80px;
+	padding: 80px;
+
+	@keyframes ani{
+		0%{
+			transform: translate3d(0,0,0);
+			text-shadow: 0em 0em 0 $back;
+			color: $mainColor;
+		}
+		30%{
+			transform: translate3d(0,0,0);
+			text-shadow: 0em 0em 0 $back;
+			color: $mainColor;
+		}
+		70%{
+			transform: translate3d($d,-$d,0);
+			text-shadow: -$d $d $back;
+			color: $mainColor;
+		}
+		100%{
+			transform: translate3d($d,-$d,0);
+			text-shadow: -$d $d $back;
+			color: $mainColor;
+		}
+	}
+	span{
+		position: relative;
+		display: inline-block;
+		animation: ani $t infinite alternate $e;
+		@for $i from 1 through $n{
+			&:nth-last-child(#{$i}n){ animation-delay: -$t*$i/$n/2;}
+		}
+	}
+	
 }
 
-.imagencafe{
-	background-image: url("../media/cafehome.jpg");
-	min-height: 50vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom center;
+.tipografia__home {
+  text-align: left;
+	color: white;
+  overflow: hidden;
 }
+
+.titulo_principal {
+  letter-spacing: 0.50px;
+  font-size: 5rem;
+  text-align: center;
+	
+}
+
+.imagencafe {
+  width:100%;
+	min-height: calc(100vh - 120px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  
+
+  &.hero-index{
+    background-image: url("../media/cafehome.jpg");
+  }
+  &.hero-origenes{
+    background-image: url("../media/hero-origenes.jpg"); 
+  }
+  &.hero-recetas{
+    background-image: url("../media/hero-recetas.jpg");
+  }
+  &.hero-cafeteras{
+    background-image: url("../media/hero-cafeteras.jpg");
+  }
+  &.hero-news{
+    background-image: url("../media/hero-news.jpg");
+  }
+  &.hero-contacto{
+    background-image: url("../media/hero-contacto.jpg");
+  }
+}
+
 .formulario{
 	font-family: 'Cormorant Garamond', serif;
 	color: $mainColor;
@@ -106,43 +167,58 @@ a{
 	font-style: normal;
 }
 
-.seccion-cafeteras {
-	width: 100%;
-	background: #fafafa;
-	display: flex;
-	justify-content: center;
+@keyframes bg {
+	0% {
+		background-size: 0 3px, 3px 0, 0 3px, 3px 0;
+	}
+	25% {
+		background-size: 100% 3px, 3px 0, 0 3px, 3px 0;
+	}
+	50% {
+		background-size: 100% 3px, 3px 100%, 0 3px, 3px 0;
+	}
+	75% {
+		background-size: 100% 3px, 3px 100%, 100% 3px, 3px 0;
+	}
+	100% {
+		background-size: 100% 3px, 3px 100%, 100% 3px, 3px 100%;
+	}
 }
 
-.contenedor-cafeteras {
-	display: flex;
-	max-width: 80%;
-	justify-content: center;
-    
-    li{
-        padding: 20px;
-    }
+.Texto_caja{
+	margin: 2rem auto;
+	padding: 2em;
+
+	background-repeat: no-repeat;
+	background-image: linear-gradient(to right, #c9c9c9 100%, #c9c9c9 100%),
+		linear-gradient(to bottom, #c9c9c9 100%, #c9c9c9 100%),
+		linear-gradient(to right, #c9c9c9 100%, #c9c9c9 100%),
+		linear-gradient(to bottom, #c9c9c9 100%, #c9c9c9 100%);
+	background-size: 100% 3px, 3px 100%, 100% 3px, 3px 100%;
+	background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+	animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;
+	animation-play-state: paused;
 }
 
-.seccion-origenes__cafe{
-	 background: #fafafa;
-	 display: flex;
-	 justify-content: center;
-	 width: 100%;
- }
+.Texto_caja:hover {
+	animation-play-state: running;
+}
 
- .origenes__cafe__lista{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 20px;
-	max-width: 80%;
-	width: 100%;
-	padding: 20px;
- }
  
+/*Origenes*/ 
+
+ #origenes{
+   background-color: #fafafa;
+ }
+
  .origenes__image-wrapper{
+    cursor: pointer;
     position: relative;
-   
+    margin: 1em;
+    border: none;
+    background-color: transparent;
+    overflow: hidden;
+
     &::after{
         position: absolute;
         top: 0;
@@ -157,9 +233,14 @@ a{
 
      .origenes__imagen{
          width: 100%;
+         transform: scale(1);
+          transition: transform 300ms ease 100ms
      }
+    .card-title {
+      font-weight: bold;
+    }
 
-     p{
+    .origenes__titulo{
          position: absolute;
          top: 50%;
          left: 50%;
@@ -174,37 +255,286 @@ a{
         &::after{
             opacity: 0.3;
         }
+        .origenes__imagen {
+          transform: scale(1.2);
+        }
 
-        p{ 
+        p, .origenes__titulo{ 
             opacity: 1;
          }
     }
  }
 
-
- 
-
- .Seccion_listaRecetas{
-    display: flex;
-    background: #fafafa;
-	width: 100%;
-
-     .contenedor_listaRecetas{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
-        justify-items: center;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 20px;
-        row-gap: 20px;
-	    max-width: 80%;
-	    padding: 20px;
-        
-        
-      }
+ .seccion_titulo {
+   margin: 20px;
+   margin-top: 0;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 2.5rem;
+    letter-spacing: 4px;
+   font-family: 'Playfair Display', serif;
  }
 
+ .recetas_parrafo{
+  text-align: center;
+}
+ .seccion-cafeteras {
+	width: 100%;
+	background: #fafafa;
+	display: flex;
+	justify-content: center;
+}
 
+
+
+/*Contacto*/
+
+.seccion_contacto{
+margin: 80px 0;
+}
+
+.formulario_contenedor{
+  display: flex;
+
+}
+
+ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #aca49c;
+    font-size: 0.875em;
+  }
+  
+  input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+    color: #bbb5af;
+  }
+  
+  input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #aca49c;
+    font-size: 0.875em;
+  }
+  
+  input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+    color: #bbb5af;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: #aca49c;
+    font-size: 0.875em;
+  }
+  
+  input:focus::placeholder, textarea::focus::placeholder {
+    color: #bbb5af;
+  }
+  
+  input::-ms-placeholder, textarea::-ms-placeholder {
+    color: #aca49c;
+    font-size: 0.875em;
+  }
+  
+  input:focus::-ms-placeholder, textarea:focus::-ms-placeholder {
+    color: #bbb5af;
+  }
+  
+  input:hover::-webkit-input-placeholder, textarea:hover::-webkit-input-placeholder {
+    color: #e2dedb;
+    font-size: 0.875em;
+  }
+  
+  input:hover:focus::-webkit-input-placeholder, textarea:hover:focus::-webkit-input-placeholder {
+    color: #cbc6c1;
+  }
+  
+  input:hover::-moz-placeholder, textarea:hover::-moz-placeholder {
+    color: #e2dedb;
+    font-size: 0.875em;
+  }
+  
+  input:hover:focus::-moz-placeholder, textarea:hover:focus::-moz-placeholder {
+    color: #cbc6c1;
+  }
+  
+  input:hover::placeholder, textarea:hover::placeholder {
+    color: #e2dedb;
+    font-size: 0.875em;
+  }
+  
+  input:hover:focus::placeholder, textarea:hover:focus::placeholder {
+    color: #cbc6c1;
+  }
+  
+  input:hover::placeholder, textarea:hover::placeholder {
+    color: #e2dedb;
+    font-size: 0.875em;
+  }
+  
+  input:hover:focus::-ms-placeholder, textarea:hover::focus:-ms-placeholder {
+    color: #cbc6c1;
+  }
+  
+  #form {
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  input {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;    
+    background: #fafafa;
+    outline: none;
+    color: #726659;    
+    border: solid 1px #b3aca7;
+    border-bottom: none;    
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+  }
+  
+  input:hover {
+    background: #b3aca7;
+    color: #e2dedb;
+  }
+  
+  textarea{
+    width: 470px;
+    max-width: 470px;
+    height: 110px;
+    max-height: 110px;
+    padding: 15px;    
+    background: #fafafa;
+    outline: none;    
+    color: #726659;
+    font-size: 0.875em;    
+    border: solid 1px #b3aca7;    
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+  }
+  
+  textarea:hover {
+    background: #b3aca7;
+    color: #e2dedb;
+  }
+  
+  #submit {   
+    padding: 0;
+    margin: -5px 0px 0px 0px;
+    font-size: 0.875em;
+    color: #b3aca7;    
+    outline:none;
+    cursor: pointer;    
+    border: solid 1px #b3aca7;
+  }
+  
+  #submit:hover {
+    color: #e2dedb;
+  }
 
   
+ 
+/*Recetas*/
+
+.container_recetas{
+  margin: 0 0 80px 0;
+  padding: 80px 0;
+  background-color: #fafafa;
+}
+
+.contenedor_titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  .receta_titulo{
+    padding-right: 20px;
+  }
+
+  &:after {
+    content: "";
+    position: relative;
+    width: 80%;
+    height: 2px;
+    background: $mainColor;
+  }
+}
+
+
+.container_receta{
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*News*/
+
+.article-wrap {
+  position: relative;
+  justify-content: space-between;
+
+  a {
+    color: lightblue;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+.article-wrap:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  width: 8px;
+  height: 20px;
+}
+
+.article-body {
+  position: relative;
+  background: #fafafa;
+  -moz-border-radius-bottomright: 32px;
+  -webkit-border-bottom-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+.article-body:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 16px;
+  left: -16px;
+  background: lightblue;
+  width: 16px;
+ 
+}
+.article-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-inner {
+  padding: 16px;
+  line-height: 1.4;
+}
+.article-inner p {
+  margin-top: 0;
+}
+
+.tarjetas_news{
+  border: none;
+  border-radius: 0;
+  background-color: #fafafa;
+}
+
+.cafetera-item:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.footer-links {
+  color: $mainColor;
+
+  &:hover {
+    color: lightblue;
+  }
+}
